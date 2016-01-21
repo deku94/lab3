@@ -16,12 +16,14 @@ function projectClick(e) { 
     jumbotronHeader.text(projectTitle);
    var containingProject = $(this).closest(".project");
     var description = $(containingProject).find(".project-description");
+    var id = $(containingProject).attr("id").substring(7);
     if (description.length == 0) {
-       $(containingProject).append("<div class='project-description'><p>Description of the project.</p></div>");
+       $(containingProject).append("<div class='project-description'><p>You are now reading the description for Project "+id+": <i>"+$(containingProject).find("p").text()+"</i>. <br> You can only see this if you hide the project picture by clicking on it </p></div>");
     } else {
        description.fadeToggle();
     }
-}
+    $(containingProject).find("img").fadeToggle();
+}	
 /*
  * Function that is called when the document is ready.
  */
